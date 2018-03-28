@@ -1,4 +1,6 @@
-const li = $('li');
+/*jshint esversion: 6 */ // To eliminate the warning --> ''let','const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).' in http://jshint.com/ (Javascript code quality tool)
+/*globals $:false */  // To eliminate the error --> 'undefined variable $' in http://jshint.com/ (Javascript code quality tool)
+
 let itemName,itemOne,itemTwo,counter,openedCards,totMatchedCtr,cardsShuffled,checkOpen,stars;
 const cardShapes =['fa-diamond' ,'fa-paper-plane-o','fa-anchor','fa-bolt','fa-cube','fa-anchor','fa-leaf','fa-bicycle','fa-diamond','fa-bomb','fa-leaf','fa-bomb','fa-bolt','fa-bicycle','fa-paper-plane-o','fa-cube'];
 
@@ -20,12 +22,12 @@ function initialize() {
   document.getElementById("spanCounter").innerHTML = counter;
   cardsShuffled = shuffle(cardShapes);
   // adding card shape class to each <i> element
-  for (var i = 0; i < cardsShuffled.length; i++) {
-    $('.deck').children('li').children('i').eq(i).attr('class','fa') // remove any class from the last game except 'fa' class
-    $('.deck').children('li').children('i').eq(i).addClass(cardsShuffled[i])
+  for (let i = 0; i < cardsShuffled.length; i++) {
+    $('.deck').children('li').children('i').eq(i).attr('class','fa'); // remove any class from the last game except 'fa' class
+    $('.deck').children('li').children('i').eq(i).addClass(cardsShuffled[i]);
   }
-  for (var i = 0; i <=2; i++) {
-    $('.stars').children('li').children('i').eq(i).attr('class','fa fa-star') // remove any class from the last game except 'fa' class
+  for (let i = 0; i <=2; i++) {
+    $('.stars').children('li').children('i').eq(i).attr('class','fa fa-star'); // remove any class from the last game except 'fa' class
   }
   $('.game-end').removeClass('game-end-show');
   clear(); // Reset timer
@@ -50,11 +52,11 @@ function addCounter(){
   document.getElementById("spanCounter").innerHTML = counter;
   switch (true) {
     case counter>10 && counter<=14:
-      $('.stars').children('li').children('i').eq(1).attr('class','fa') // remove any class from the last game except 'fa' class
+      $('.stars').children('li').children('i').eq(1).attr('class','fa'); // remove any class from the last game except 'fa' class
       stars =2;
       break;
     case counter>15:
-      $('.stars').children('li').children('i').eq(2).attr('class','fa') // remove any class from the last game except 'fa' class
+      $('.stars').children('li').children('i').eq(2).attr('class','fa'); // remove any class from the last game except 'fa' class
       stars =1;
       break;
     default:
@@ -75,7 +77,7 @@ function match(){
 function notMatch(e){
   $('.open').removeClass('open show animated-n-match wobble');
   openedCards=[];
-};
+}
 
 // This function sets the name of the second class of the first child (item) of the clicked List to variable "itemName", then push it to the array opnedCards
 function addCardToArr(e){
@@ -93,14 +95,14 @@ function addCardToArr(e){
       if (openedCards.length===2) {
         $('.open').addClass('animated-match enlarge');
       }
-      setTimeout(match,900)
+      setTimeout(match,900);
         // match();
     }
     else{
       if (openedCards.length===2) {
         $('.open').addClass('animated-n-match wobble');
       }
-      setTimeout(notMatch,900)
+      setTimeout(notMatch,900);
     }
     addCounter();
   }
@@ -144,14 +146,14 @@ $('li').on('click', function (evt) {
       showCard(evt);
       addCardToArr(evt);
       //wait untill matched cards counter is incremented
-      setTimeout(checkIfWin,900)
+      setTimeout(checkIfWin,900);
     }
-})
+});
 
 // Reset game
 $('.fa-repeat').on('click', function () {
   initialize();
-})
+});
 
 // Timer
 
