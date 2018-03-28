@@ -255,3 +255,7 @@ li {
               -o-transform: translate(0, 1px);
               transform: translate(0, 1px);
             }
+
+#timer{
+  text-align:center;
+}
