@@ -118,7 +118,7 @@ function hasClassOpen(evt) {
 }
 
 function checkIfWin(){
-  if (totMatchedCtr===2) { // All cards matched. Win!
+  if (totMatchedCtr===16) { // All cards matched. Win!
     $('.game-end').addClass('game-end-show'); // show the celebrate background
     setTimeout(function(){  // Wait untill the celebration background appears
       let answer =confirm(`Congratulations! You won, your score is: ${counter} and stars: ${stars}
