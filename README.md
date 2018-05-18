@@ -1,4 +1,5 @@
 # Memory Game
+===============
 This game is a requirement project in the _[Udacity Font-End Web developer Nanodegree program](https://eg.udacity.com/course/front-end-web-developer-nanodegree--nd001)_. The game directory contains:
 
 1- **_js folder_** which contains the javascript _app.js_ file.
